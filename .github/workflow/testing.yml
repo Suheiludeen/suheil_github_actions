@@ -1,0 +1,34 @@
+name: testing
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v7
+    - name: python-Version
+      uses: actions/setup-python@v3
+      with:  
+        python-version: '3.7'
+    - name: build install
+      run: pip install pytest
+    - name: test
+      run: python pytest
+    - name: docker image build
+      run: docker build -t Suheiludeen/suheil_github_actions:testv1
+    - name: docker login
+      uses: docker/login-actions@v3
+      with: 
+        username: ${{vars.DOCKER_USERNAME}}
+        password: ${{secrets.DOCKER_PASSWORD}}
+    - name: docker pushing
+      run: docker push Suheiludeen/suheil_github_actions:testv1
+
+
+    
+
+
