@@ -13,7 +13,7 @@ jobs:
     - name: build install
       run: pip install pytest
     - name: test
-      run: python pytest
+      run: python -m pytest
     - name: docker image build
       run: docker build -t suheil210/suheil_github:testv1
     - name: docker login
