@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-print("3")
+
 app= FastAPI()
 
 @app.get("/")
