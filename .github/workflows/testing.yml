@@ -19,14 +19,14 @@ jobs:
     - name: test
       run: python pytest
     - name: docker image build
-      run: docker build -t Suheiludeen/suheil_github_actions:testv1
+      run: docker build -t suheil210/suheil_github:testv1
     - name: docker login
       uses: docker/login-actions@v3
       with: 
         username: ${{vars.DOCKER_USERNAME}}
         password: ${{secrets.DOCKER_PASSWORD}}
     - name: docker pushing
-      run: docker push Suheiludeen/suheil_github_actions:testv1
+      run: docker push suheil210/suheil_github:testv1
 
 
     
